@@ -1,0 +1,150 @@
+import random
+print("Welcome to “Who Wants to Be a Millionaire?")
+print("created by nabih amer && jaber rammal")
+ans = 's'
+print("if you want to read the rules about the game press r to skip to the game press anykey")
+ans = input()
+if ans == 'r':
+    print("###########################################################################################################")
+    print("#Welcome to Who Wants to Be a Millionaire made by nabih amer && jaber rammal                              #")
+    print("#---------------------------------------------------------------------------------------------------------#")
+    print("#the game is about 10 question and 4 answers if you picked answer right you win the big price with each   #")
+    print("#correct answer you can after quit and take the price with you or continue to the next level if you fail to#")
+    print("#answer the correct answer you get ou of  competition and you lose you score accept if you reach any check#")
+    print("#point than you win the check point , you get 2 help options for help you to answer the correct answer but#")
+    print("#you can't use them both at same time one of them is call a friend help where your friend suggest his     #")
+    print("#answer and the other delete 2 wrong answers and leave you with 50/50 chance to win best luck to win      #")
+    print("#The amounts and stages of the game are:                                                                  #")
+    print("#1000000$ the biggest price                                                                               #")
+    print("#-----------check point------------                                                                       #")
+    print("#[Third Level: $ 250,000]                                                                                 #")
+    print("#250000$                                                                                                  #")
+    print("#10000$                                                                                                   #")
+    print("#-----------check point------------                                                                       #")
+    print("#[Second Level: $ 5000]                                                                                   #")
+    print("#5000$                                                                                                    #")
+    print("#2000$                                                                                                    #")
+    print("#-----------check point------------                                                                       #")
+    print("#[First  Level: $ 1000]                                                                                   #")
+    print("#1000$                                                                                                    #")
+    print("#500$                                                                                                     #")
+    print("#300$                                                                                                     #")
+    print("#200$                                                                                                     #")
+    print("#100$                                                                                                     #")
+    print("###########################################################################################################")
+    ans1 = input("enter anykey to start the game ")
+print("lets know you better  before we start ;)")
+person = input("enter your name: ")
+input("enter your age : ")
+input("where are you from : ")
+print("welcome to the completion ", person)
+p = [100, 200, 300, 500, 1000, 2000, 5000, 10000, 250000, 1000000]
+q = ["The Earth is approximately how many km away from the Sun?",
+     "Which insect shorted out an early supercomputer and inspired the term computer bug?",
+     "Which of the following men does not have a chemical element named for him?",
+     "Which of the following landlocked countries is entirely contained within another country?",
+     "What letter must appear on the beginning of the registration number of all non-military aircraft in the US?",
+     "According to the Population Reference Bureau, what is the approximate number of people who have ever lived on earth?",
+     "Which scientific unit is named after an Italian nobleman?", "Emmenthal is a cheese from which country?",
+     "A number one followed by 100 zeroes is known by what name?", "Who's the author of The Little Match Girl"]
+a = [["1)150MKm", "2)510MKm", "3)51Mkm", "4)15MKm"], ["1)Roach", "2)Moth", "3)Fly", "4)beetle"],
+     ["1)Albert Einstein", "2)Isaac Newton", "3)Niels Bohr", "4)Enrico Fermi"],
+     ["1)Lesotho", "2)Burkina Faso", "3)Mongolia", "4)Luxembourg", ], ["1)A", "2)F", "3)L", "4)N", ],
+     ["1)5o billion", "2)100 billion", "3)1 trillion", "4)5 trillion", ], ["1)Pascal", "2)Ohm", "3)Volt", "4)Hertz", ],
+     ["1)France", "2)Italy", "3)The Netherlands", "4)Switzerland", ],
+     ["1)Gigabit", "2)Googol", "3)Nanomole", "4)Megatron", ],
+     ["1)Hans Christian Andersen", "2)Paulo Coelho", "3)Leo Tolstoy", "4)William Shakespeare", ]]
+c = [0, 1, 1, 0, 3, 1, 2, 3, 1, 0]
+friend = True
+half = True
+i = 0
+count = 0
+m1 = False
+ac = True
+while count < 10:
+    print(q[i])
+    print(a[i][0], "        ", a[i][1])
+    print(a[i][2], "        ", a[i][3])
+    z = input("do you want to use one of help? f//h//n : ")
+    while not (z == 'n' or z == 'f' or z == 'h'):
+        z = input("please enter a valid answer : ")
+    if z == 'f':
+        if friend == True:
+            r = random.randint(0, 3)
+            print("your friend think that ", a[i][r], "is the correct answer")
+            friend = False
+        else:
+            print("you have used this option")
+            z1 = input("do you want to use the 50/50 : ")
+            if z1 == 'y':
+                if half == True:
+                    d2 = c[i]
+                    while not d2 != c[i]:
+                        d2 = random.randint(0, 3)
+                    print(a[i][d2], a[i][c[i]])
+                    half = False
+                else:
+                    print("you have used this option too you got to continue with out it")
+    if z == 'h':
+        if half == True:
+            d2 = c[i]
+            while not d2 != c[i]:
+                d2 = random.randint(0, 3)
+            print(a[i][d2], a[i][c[i]])
+            half = False
+        else:
+            print("you have used this option")
+            z2 = input("do you want to call a friend? : ")
+            if z2 == 'y':
+                if friend == True:
+                    r = random.randint(0, 3)
+                    print("your friend think that ", a[i][r], "is the correct answer")
+                    friend = False
+                else:
+                    print("you have used this option too you got to continue with out it")
+    x = int(input("please enter the right answer : "))
+    while not 0 < x < 5:
+        x = int(input("please enter the right answer : "))
+    import os
+    clear = lambda: os.system("cls")
+    clear()
+    if a[i][c[i]] != a[i][x - 1]:
+        print("your answer is wrong :(")
+        if i < 5:
+            print("you win nothing")
+        if 4 < i < 7:
+            print("you win 1000$")
+        if 6 < i < 10:
+            print("you win 5000$")
+        if 9 < i < 11:
+            print("you wint 2500000$")
+        if 11 < i:
+            print("congrats you win 1000000$")
+        ac = False
+        break
+    else:
+        import os
+        clear = lambda: os.system("cls")
+        clear()
+        print("your answer and you score now is ", p[i], "$")
+        print("the right answer is", a[i][c[i]])
+        count += 1
+        if count < 10:
+            y = input("do you wan to continue y/n : ")
+            while not (y == 'y' or y == 'n'):
+                y = input("do you wan to continue y/n : ")
+            if y == 'n':
+                ac = False
+                print("congrats you win ", p[i], "$")
+                break
+        else:
+            print("congrats", person, "you win 1000000$")
+            print("thank you for being part of the game")
+        i += 1
+
+
+
+
+
+
+
